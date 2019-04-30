@@ -17,7 +17,7 @@ Portable Wisdom is a tool to generate EPUB files from [Instapaper](https://www.i
 
 1. Download and install Portable Wisdom from PyPI:
 
-		$ pip install portable_wisdom
+		$ pip install portable-wisdom
 
 2. [Request an Instapaper API key.](https://www.instapaper.com/main/request_oauth_consumer_token) (Or copy one from a friend.)
 4. Run Portable Wisdom from the command line:
