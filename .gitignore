@@ -12,3 +12,6 @@ tmp
 
 # build
 *.epub
+
+# products
+dist
