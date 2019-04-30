@@ -1,0 +1,14 @@
+# packages
+venv
+
+# python
+.eggs
+*.egg-info
+
+# cache
+__pycache__
+*.pyc
+tmp
+
+# build
+*.epub
