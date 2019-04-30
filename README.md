@@ -27,7 +27,7 @@ Portable Wisdom is a tool to generate EPUB files from [Instapaper](https://www.i
 			--instapaper-login USER \
 			--instapaper-password PASS
 
-On success, the script will print the output filename. For all the options, run `$ portable-wisdom -h`.
+On success, the script will print the output filename. To view all of the options, run `$ portable-wisdom -h`.
 
 ## License
 
