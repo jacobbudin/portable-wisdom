@@ -1,6 +1,6 @@
 # Portable Wisdom
 
-Portable Wisdom is a command-line tool to generate EPUB files from your recent unread articles in [Instapaper](https://www.instapaper.com/). You can then choose to sync to your ereader.
+Portable Wisdom is a command-line tool to generate EPUB files from your recent unread articles in [Instapaper](https://www.instapaper.com/). You can then copy these files to your ereader.
 
 ## Technologies
 
