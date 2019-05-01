@@ -1,6 +1,6 @@
 # Portable Wisdom
 
-Portable Wisdom is a tool to generate EPUB files from [Instapaper](https://www.instapaper.com/). You can then choose to sync these files to your ereader.
+Portable Wisdom is a command-line tool to generate EPUB files from your recent unread articles in [Instapaper](https://www.instapaper.com/). You can then choose to sync to your ereader.
 
 ## Technologies
 
@@ -9,9 +9,9 @@ Portable Wisdom is a tool to generate EPUB files from [Instapaper](https://www.i
 ## Features
 
 - Retrieves unread articles from Instapaper
-- Embeds web images, downsizes them, and converts them to greyscale
-- Caches articles and images
-- Creates well-formatted EPUB files, tailored for your ereader
+- Finds and downloads images from the web, downsizes them, converts them to greyscale, and embeds them into the file
+- Caches articles and images, runs fast for heavy users
+- Creates well-formatted EPUB files tailored for your ereader
 
 ## Quick Start
 
@@ -28,6 +28,14 @@ Portable Wisdom is a tool to generate EPUB files from [Instapaper](https://www.i
 			--instapaper-password PASS
 
 On success, the script will print the output filename. To view all of the options, run `$ portable-wisdom -h`.
+
+## Compatibility
+
+Portable Wisdom uses [`EbookLib`](https://pypi.org/project/EbookLib/) to create EPUB files. These files are compatible with most ereaders—including Nook, Kobo, and Sony—as well as most ebook software. Kindle owners can use [Pandoc](https://pandoc.org/) or a similar tool to convert from EPUB to MOBI.
+
+### Styles
+
+Portable Wisdom supports styles (`--style`) to create EPUB files optimized for your ereader's rendering engine. These styles are regular CSS files. They specify header sizes, image layout, quote formatting, etc. Use the default style or create your own.
 
 ## License
 
