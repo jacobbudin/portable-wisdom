@@ -31,10 +31,20 @@ class Source:
         book.add_item(epub.EpubNav())
 
         # Add stylesheet
-        if not style.endswith('.css'):
-            style = style + '.css'
+        # Use path if file exists
+        if os.path.exists(style):
+            style_path = style
+            logging.debug('Using custom style %s' % style)
+        # Otherwise use preset style
+        else:
+            style_name = style if style.endswith('.css') else style + '.css'
+            style_path = os.path.join(STYLES_PATH, style_name)
 
-        style_path = os.path.join(STYLES_PATH, style)
+            if not os.path.exists(style_path):
+                raise Exception('%s is not a preset style' % style)
+
+            logging.debug('Using preset style %s' % style)
+
         with open(style_path) as f:
             nav_css = epub.EpubItem(uid="style_nav", file_name="style/default.css", media_type="text/css", content=f.read())
 

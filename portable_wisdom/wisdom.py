@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--instapaper-secret', help='Instapaper API secret')
     parser.add_argument('--instapaper-login', help='Instapaper account username or email address')
     parser.add_argument('--instapaper-password', help='Instapaper account password')
-    parser.add_argument('-s', '--style', default=config.STYLE, help='stylesheet to use')
+    parser.add_argument('-s', '--style', default=config.STYLE, metavar='PRESET|FILE', help='stylesheet to use')
     parser.add_argument('-l', '--article-limit', '--limit', default=config.ARTICLE_LIMIT, metavar='LIMIT', type=int, help='number of articles to include')
     parser.add_argument('-v', '--verbose', default=False, action='store_true', help='verbose mode')
     parser.add_argument('-d', '--debug', default=False, action='store_true', help='debug mode')
