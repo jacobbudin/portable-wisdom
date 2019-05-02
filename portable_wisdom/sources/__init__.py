@@ -1,1 +1,0 @@
-from .instapaper import Instapaper

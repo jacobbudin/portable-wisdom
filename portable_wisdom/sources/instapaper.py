@@ -1,8 +1,7 @@
 import logging
-import os.path
 from ..cache import cache
 from ..article import Article
-from ..config import *
+from ..config import INSTAPAPER_KEY, INSTAPAPER_SECRET, INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD, ARTICLE_LIMIT
 from ..source import Source
 from pyinstapaper.instapaper import Instapaper as PInstapaper
 

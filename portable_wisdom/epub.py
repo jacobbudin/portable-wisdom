@@ -7,7 +7,7 @@ import io
 import logging
 import requests
 from PIL import Image
-from .config import *
+from .config import IMAGE_MAX_SIZE
 
 def embed_images(book):
     """Embeds remote images in EPUB HTML chapters"""
@@ -18,7 +18,8 @@ def embed_images(book):
             continue
         
         # Parse HTML, find `img` elements
-        soup = BeautifulSoup('<html><body>%s</body></html>' % item.content, 'html5lib')
+        soup = BeautifulSoup('<html><body>%s</body></html>' %
+                             item.content, 'html5lib')
 
         for img in soup.find_all('img'):
             src = img.get('src')
@@ -57,10 +58,12 @@ def embed_images(book):
                         logging.info('Downloading image %s', img['src'])
                         content = requests.get(img['src']).content
                     except requests.exceptions.ContentDecodingError as e:
-                        logging.error('Skipping image %s (%s)' % (img['src'], e))
+                        logging.error('Skipping image %s (%s)' %
+                                      (img['src'], e))
                         continue
                     except requests.exceptions.ConnectionError as e:
-                        logging.error('Skipping image %s (%s)' % (img['src'], e))
+                        logging.error('Skipping image %s (%s)' %
+                                      (img['src'], e))
                         continue
 
                     original = io.BytesIO()
@@ -68,13 +71,15 @@ def embed_images(book):
 
                     try:
                         # Create smaller, greyscale image from source image
-                        im = Image.open(original).convert('RGBA') # convert to `RGBA` before `L` or Pillow will complain
+                        # convert to `RGBA` before `L` or Pillow will complain
+                        im = Image.open(original).convert('RGBA')
                         im.thumbnail(IMAGE_MAX_SIZE)
                         im = im.convert('L')
                         im.save(thumbnail, 'png' if ext == '.png' else 'jpeg')
 
                     except OSError as e:
-                        logging.error('Skipping image %s (%s)' % (img['src'], e))
+                        logging.error('Skipping image %s (%s)' %
+                                      (img['src'], e))
                         continue
 
                     cache.set(thumbnail_hash, thumbnail.getvalue())

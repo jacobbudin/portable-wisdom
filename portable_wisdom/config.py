@@ -1,5 +1,6 @@
 # HTML elements that are preserved
-ALLOWED_TAGS = ('p', 'b', 'i', 'blockquote', 'strong', 'em', 'figure', 'figcaption', 'img')
+ALLOWED_TAGS = ('p', 'b', 'i', 'blockquote', 'strong',
+                'em', 'figure', 'figcaption', 'img')
 
 # HTML element attributes that are preserved
 ALLOWED_ATTRIBUTES = ('src', )
