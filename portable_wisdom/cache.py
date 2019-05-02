@@ -3,7 +3,8 @@ import logging
 import os
 
 CACHE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tmp')
-CACHE_SIZE = 64 * 1000000 #64MB
+CACHE_SIZE = 64 * 1000000  # 64MB
+
 
 class Cache:
     def __init__(self):
@@ -32,5 +33,6 @@ class Cache:
         value = _or()
         self.cache.set(key, value)
         return value
+
 
 cache = Cache()

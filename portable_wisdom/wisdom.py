@@ -8,6 +8,7 @@ from ebooklib import epub
 import logging
 from . import config
 
+
 def main():
     """Generate EPUB from Instapaper"""
     # Support CLI
@@ -62,6 +63,7 @@ def main():
 
     epub.write_epub(filename, book, {})
     print(filename)
+
 
 if __name__ == '__main__':
     main()

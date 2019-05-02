@@ -4,6 +4,7 @@ from portable_wisdom.article import Article
 title = 'Bank Robber Strikes Again'
 content = '$1m was stolen from First Federal Bank yesterday.'
 
+
 class TestArticle(TestCase):
     def test_init(self):
         a = Article(title, content)
@@ -14,4 +15,3 @@ class TestArticle(TestCase):
         a = Article(title, content)
         self.assertIn(title, str(a))
         self.assertNotIn(content, str(a))
-

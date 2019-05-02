@@ -9,6 +9,7 @@ import requests
 from PIL import Image
 from .config import IMAGE_MAX_SIZE
 
+
 def embed_images(book):
     """Embeds remote images in EPUB HTML chapters"""
     image_names = set()
@@ -16,7 +17,7 @@ def embed_images(book):
     for item in book.items:
         if type(item) is not epub.EpubHtml:
             continue
-        
+
         # Parse HTML, find `img` elements
         soup = BeautifulSoup('<html><body>%s</body></html>' %
                              item.content, 'html5lib')

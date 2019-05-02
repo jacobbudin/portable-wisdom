@@ -1,9 +1,11 @@
 import logging
 from ..cache import cache
 from ..article import Article
-from ..config import INSTAPAPER_KEY, INSTAPAPER_SECRET, INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD, ARTICLE_LIMIT
+from ..config import INSTAPAPER_KEY, INSTAPAPER_SECRET, \
+                     INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD, ARTICLE_LIMIT
 from ..source import Source
 from pyinstapaper.instapaper import Instapaper as PInstapaper
+
 
 class Instapaper(Source):
     name = 'Instapaper'
@@ -24,7 +26,7 @@ class Instapaper(Source):
 
         for bookmark in bookmarks:
             content = cache.get_or(bookmark.hash,
-                    lambda: bookmark.get_text()['data'].decode())
+                                   lambda: bookmark.get_text()['data'].decode())  # noqa: E501
             article = Article(title=bookmark.title, content=content)
             articles.append(article)
 

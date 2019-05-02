@@ -1,6 +1,7 @@
 from unittest import TestCase
-from random import choice 
+from random import choice
 from portable_wisdom.cache import Cache
+
 
 class TestCache(TestCase):
     def test_get(self):
