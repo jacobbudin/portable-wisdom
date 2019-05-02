@@ -19,6 +19,8 @@ def main():
                         help='Instapaper account username or email address')
     parser.add_argument('--instapaper-password',
                         help='Instapaper account password')
+    parser.add_argument('-o', '--output', default=config.STYLE,
+                        metavar='FILE', help='output filename')
     parser.add_argument('-s', '--style', default=config.STYLE,
                         metavar='PRESET|FILE', help='stylesheet to use')
     parser.add_argument('-l', '--article-limit', '--limit', default=config.ARTICLE_LIMIT,
@@ -51,9 +53,12 @@ def main():
     book = source().to_epub()
     embed_images(book)
 
-    today = datetime.datetime.today()
-    filename = '%s - %s-%s-%s.epub' % (source.name,
-                                       today.year, today.month, today.day)
+    filename = config.OUTPUT
+    if not filename:
+        today = datetime.datetime.today()
+        filename = '%s - %s-%s-%s.epub' % (source.name, today.year,
+                                           today.month, today.day)
+
     epub.write_epub(filename, book, {})
     print(filename)
 

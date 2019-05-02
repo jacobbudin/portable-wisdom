@@ -17,6 +17,9 @@ ARTICLE_LIMIT = 25
 # Maximum dimensions of embedded images
 IMAGE_MAX_SIZE = (600, 600)
 
+# Output filename
+OUTPUT = None
+
 # Name of stylesheet to use
 STYLE = 'nook-glowlight-3'
 
