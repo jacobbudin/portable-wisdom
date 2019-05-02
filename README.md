@@ -37,6 +37,16 @@ Portable Wisdom uses [`EbookLib`](https://pypi.org/project/EbookLib/) to create 
 
 Portable Wisdom supports styles (`--style`) to create EPUB files optimized for your ereader's rendering engine. These styles are regular CSS files. They specify header sizes, image layout, quote formatting, etc. Use the default style or create your own.
 
+## Contributing
+
+To report a bug or request a feaure, [create an issue on GitHub](https://github.com/jacobbudin/portable-wisdom/issues/new). Developers are welcome and encouraged to submit pull requests, but contributors should strongly consider creating an issue and requesting comments before starting work.
+
+### Guidelines
+
+- Comply with [PEP 8](https://www.python.org/dev/peps/pep-0008/) (use [Flake8](https://pypi.org/project/flake8/) to confirm)
+- Run and pass all tests
+	- Create new tests or refine existing ones, if necessary
+
 ## License
 
 MIT License
