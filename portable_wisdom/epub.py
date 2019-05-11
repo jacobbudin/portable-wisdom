@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from ebooklib import epub
+import logging
 from . import transformers
 
 def transform(book, function_names):
@@ -15,6 +16,7 @@ def transform(book, function_names):
 
         # Apply transformations
         for name in function_names:
+            logging.debug('Applying %s transformer' % name)
             function = getattr(transformers, name)
             function(book, soup)
 

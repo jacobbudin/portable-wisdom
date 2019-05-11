@@ -4,10 +4,48 @@ import os
 from ebooklib import epub
 import io
 import logging
+import re
 import requests
 from PIL import Image
 from .config import IMAGE_MAX_SIZE
 
+hr_like = re.compile(r"""^[\*\-—~ ]+$""")
+def beautify_hr(book, soup):
+    """Replaces rule-like elements with `hr`"""
+
+    for el in soup.find_all('p'):
+        content = el.string
+
+        if not content:
+            continue
+
+        if re.match(hr_like, content.strip()):
+            el.insert_before(soup.new_tag('hr'))
+            el.decompose()
+
+    # Replace back-to-back `hr`s
+    for el in soup.find_all('hr'):
+        previous = el.previous_sibling
+        if previous and previous.name == 'hr':
+            previous.decompose()
+
+    # Never begin or end with `hr`
+    if len(soup.contents):
+        first = soup.contents[0]
+        last = soup.contents[-1]
+
+        if first.name == 'hr':
+            first.decompose()
+
+        if last.name == 'hr':
+            last.decompose()
+
+def strip_links(book, soup):
+    """Replaces `a` elements with `span.link`"""
+
+    for a in soup.find_all('a'):
+        a.name = 'span'
+        a['class'] = 'link'
 
 image_names = set()
 def embed_images(book, soup):
