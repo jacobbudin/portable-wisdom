@@ -23,6 +23,9 @@ OUTPUT = None
 # Name of stylesheet to use
 STYLE = 'nook-glowlight-3'
 
+# Quiet mode
+QUIET = False
+
 # Debug mode
 DEBUG = False
 

@@ -7,6 +7,7 @@ import datetime
 from ebooklib import epub
 import logging
 from . import config
+import sys
 
 
 def main():
@@ -27,6 +28,9 @@ def main():
     parser.add_argument('-l', '--article-limit', '--limit',
                         default=config.ARTICLE_LIMIT, metavar='LIMIT',
                         type=int, help='number of articles to include')
+    parser.add_argument('-q', '--quiet', default=False,
+                        action='store_true',
+                        help='do not print standard output')
     parser.add_argument('-v', '--verbose', default=False,
                         action='store_true', help='verbose mode')
     parser.add_argument('-d', '--debug', default=False,
@@ -46,6 +50,12 @@ def main():
     logging.basicConfig(format='%(levelname)s: %(message)s',
                         level=logging_level)
 
+    # Check for multiple output options
+    output_options = (config.QUIET, config.VERBOSE, config.DEBUG)
+    if len(tuple(filter(lambda x: x is True, output_options))) > 1:
+        logging.critical('Cannot use multiple output flags')
+        sys.exit(1)
+
     # Import after configuration is set
     from .epub import embed_images
     from .sources.instapaper import Instapaper
@@ -62,7 +72,8 @@ def main():
                                            today.month, today.day)
 
     epub.write_epub(filename, book, {})
-    print(filename)
+    if not config.QUIET:
+        print(filename)
 
 
 if __name__ == '__main__':
