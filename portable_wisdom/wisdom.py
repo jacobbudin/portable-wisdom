@@ -20,7 +20,7 @@ def main():
                         help='Instapaper account username or email address')
     parser.add_argument('--instapaper-password',
                         help='Instapaper account password')
-    parser.add_argument('-o', '--output', default=config.STYLE,
+    parser.add_argument('-o', '--output', default=config.OUTPUT,
                         metavar='FILE', help='output filename')
     parser.add_argument('-s', '--style', default=config.STYLE,
                         metavar='PRESET|FILE', help='stylesheet to use')
