@@ -30,7 +30,7 @@ def beautify_hr(book, soup):
             previous.decompose()
 
     # Never begin or end with `hr`
-    if len(soup.contents):
+    if len(soup.body.contents):
         first = soup.contents[0]
         last = soup.contents[-1]
 
