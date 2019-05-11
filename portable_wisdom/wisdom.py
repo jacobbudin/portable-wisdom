@@ -25,6 +25,9 @@ def main():
                         metavar='FILE', help='output filename')
     parser.add_argument('-s', '--style', default=config.STYLE,
                         metavar='PRESET|FILE', help='stylesheet to use')
+    parser.add_argument('-t', '--transform', default=config.TRANSFORM,
+                        nargs='+', metavar='FUNCTION',
+                        help='transformer functions')
     parser.add_argument('-l', '--article-limit', '--limit',
                         default=config.ARTICLE_LIMIT, metavar='LIMIT',
                         type=int, help='number of articles to include')
@@ -57,13 +60,13 @@ def main():
         sys.exit(1)
 
     # Import after configuration is set
-    from .epub import embed_images
+    from .epub import transform
     from .sources.instapaper import Instapaper
 
     # Create EPUB and save to disk
     source = Instapaper
     book = source().to_epub()
-    embed_images(book)
+    transform(book, config.TRANSFORM)
 
     filename = config.OUTPUT
     if not filename:

@@ -5,6 +5,9 @@ ALLOWED_TAGS = ('p', 'b', 'i', 'blockquote', 'strong',
 # HTML element attributes that are preserved
 ALLOWED_ATTRIBUTES = ('src', )
 
+# Default transformers to apply
+TRANSFORM = ('embed_images', )
+
 # Instapaper configuration
 INSTAPAPER_KEY = ''
 INSTAPAPER_SECRET = ''
