@@ -60,10 +60,18 @@ blockquote p:last-child {
 }
 
 /* Images */
+figure {
+  display: block;
+  text-align: center;
+}
 figcaption {
-  margin: 0 0 1em 0;
+  display: block;
+  margin: 1em 0;
+  font-style: italic;
+  text-align: left;
 }
 img {
+  display: block;
   text-align: center;
 }
 
