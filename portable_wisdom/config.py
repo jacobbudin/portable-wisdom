@@ -6,7 +6,12 @@ ALLOWED_TAGS = ('p', 'b', 'i', 'blockquote', 'strong',
 ALLOWED_ATTRIBUTES = ('src', )
 
 # Default transformers to apply
-TRANSFORM = ('embed_images', 'strip_links', 'beautify_hr')
+TRANSFORM = (
+        'remove_duplicative_blockquotes',
+        'embed_images',
+        'strip_links',
+        'beautify_hr'
+        )
 
 # Instapaper configuration
 INSTAPAPER_KEY = ''

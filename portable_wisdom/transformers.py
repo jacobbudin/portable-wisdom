@@ -40,6 +40,27 @@ def beautify_hr(book, soup):
         if last.name == 'hr':
             last.decompose()
 
+def remove_duplicative_blockquotes(book, soup):
+    """Removes `blockquote` elements that contain duplicated copy"""
+
+    # Create a string with all article text in `p`s
+    copy = ""
+    for p in soup.find_all('p'):
+        if p.string:
+            copy += p.string
+
+    # Iterate over `blockquotes`, removing those with text from article text
+    for blockquote in soup.find_all('blockquote'):
+        quote = blockquote.string
+
+        if not quote:
+            continue
+
+        quote = quote.strip()
+        if quote in copy:
+            logging.debug('Removing blockquote: %s', quote)
+            blockquote.decompose()
+
 def strip_links(book, soup):
     """Replaces `a` elements with `span.link`"""
 
