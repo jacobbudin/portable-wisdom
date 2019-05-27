@@ -7,11 +7,11 @@ ALLOWED_ATTRIBUTES = ('src', )
 
 # Default transformers to apply
 TRANSFORM = (
-        'remove_duplicative_blockquotes',
-        'embed_images',
-        'strip_links',
-        'beautify_hr'
-        )
+    'remove_duplicative_blockquotes',
+    'embed_images',
+    'strip_links',
+    'beautify_hr'
+)
 
 # Instapaper configuration
 INSTAPAPER_KEY = ''

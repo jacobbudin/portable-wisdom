@@ -10,6 +10,8 @@ from PIL import Image
 from .config import IMAGE_MAX_SIZE
 
 hr_like = re.compile(r"""^[\*\-—~ ]+$""")
+
+
 def beautify_hr(book, soup):
     """Replaces rule-like elements with `hr`"""
 
@@ -40,6 +42,7 @@ def beautify_hr(book, soup):
         if last.name == 'hr':
             last.decompose()
 
+
 def remove_duplicative_blockquotes(book, soup):
     """Removes `blockquote` elements that contain duplicated copy"""
 
@@ -61,6 +64,7 @@ def remove_duplicative_blockquotes(book, soup):
             logging.debug('Removing blockquote: %s', quote)
             blockquote.decompose()
 
+
 def strip_links(book, soup):
     """Replaces `a` elements with `span.link`"""
 
@@ -68,7 +72,10 @@ def strip_links(book, soup):
         a.name = 'span'
         a['class'] = 'link'
 
+
 image_names = set()
+
+
 def embed_images(book, soup):
     """Embeds remote images in EPUB HTML chapters"""
 

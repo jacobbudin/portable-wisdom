@@ -3,6 +3,7 @@ from ebooklib import epub
 import logging
 from . import transformers
 
+
 def transform(book, function_names):
     """Apply transformation functions to ebook"""
 
