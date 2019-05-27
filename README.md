@@ -45,9 +45,15 @@ Portable Wisdom supports styles (`--style`) to create EPUB files optimized for y
 
 To report a bug or request a feaure, [create an issue on GitHub](https://github.com/jacobbudin/portable-wisdom/issues/new). Developers are welcome and encouraged to submit pull requests, but contributors should strongly consider creating an issue and requesting comments before starting work.
 
+### Source
+
+You can run Portable Wisdom from its source like so:
+
+	$ python3 -m portable_wisdom.wisdom
+
 ### Guidelines
 
-- Comply with [PEP 8](https://www.python.org/dev/peps/pep-0008/) (use [Flake8](https://pypi.org/project/flake8/) to confirm)
+- Comply with [PEP 8](https://www.python.org/dev/peps/pep-0008/) (use [Flake8](https://pypi.org/project/flake8/) to confirm, [autopep8](https://github.com/hhatto/autopep8) can help)
 - Run and pass all tests
 	- Create new tests or refine existing ones, if necessary
 
