@@ -25,6 +25,9 @@ ARTICLE_LIMIT = 25
 # Maximum dimensions of embedded images
 IMAGE_MAX_SIZE = (600, 600)
 
+# Maximum size of on-disk cache for article text and web images
+CACHE_SIZE = 64 * 1000000  # 64 MB
+
 # Output filename
 OUTPUT = None
 

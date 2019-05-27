@@ -1,9 +1,9 @@
+from .config import CACHE_SIZE
 from diskcache import Cache as DiskCache
 import logging
 import os
 
 CACHE_PATH = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'tmp')
-CACHE_SIZE = 64 * 1000000  # 64MB
 
 
 class Cache:
