@@ -33,6 +33,10 @@ Portable Wisdom is a command-line tool to generate EPUB files from your recent u
 
 On success, the script will print the output filename. To view all of the options, run `$ portable-wisdom -h`.
 
+## Transformers
+
+Transformers are functions that modify the EPUB before writing the file to disk. There are many built-in transformers including: `beautify_hr` (converts lines of asertisks to horizontal rules), `remove_duplicative_blockquotes` (removes magazine-style "pull quotes"), `strip_links` (removes `a` elements), `embed_images` (embeds remote web images).
+
 ## Compatibility
 
 Portable Wisdom uses [`EbookLib`](https://pypi.org/project/EbookLib/) to create EPUB files. These files are compatible with most ereaders—including Nook, Kobo, and Sony—as well as most ebook software. Kindle owners can use [Pandoc](https://pandoc.org/) or a similar tool to convert from EPUB to MOBI.
