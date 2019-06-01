@@ -7,7 +7,7 @@ import logging
 import re
 import requests
 from PIL import Image
-from .config import IMAGE_MAX_SIZE
+from .config import IMAGE_GREYSCALE, IMAGE_MAX_SIZE
 
 hr_like = re.compile(r"""^[\*\-—~ ]+$""")
 
@@ -132,7 +132,8 @@ def embed_images(book, soup):
                     # convert to `RGBA` before `L` or Pillow will complain
                     im = Image.open(original).convert('RGBA')
                     im.thumbnail(IMAGE_MAX_SIZE)
-                    im = im.convert('L')
+                    if IMAGE_GREYSCALE:
+                        im = im.convert('L')
                     im.save(thumbnail, 'png' if ext == '.png' else 'jpeg')
 
                 except OSError as e:

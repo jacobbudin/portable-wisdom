@@ -22,6 +22,9 @@ INSTAPAPER_PASSWORD = ''
 # Maximum number of articles to include
 ARTICLE_LIMIT = 25
 
+# Whether to convert images to greyscale
+IMAGE_GREYSCALE = True
+
 # Maximum dimensions of embedded images
 IMAGE_MAX_SIZE = (600, 600)
 
