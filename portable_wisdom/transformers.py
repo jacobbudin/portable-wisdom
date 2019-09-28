@@ -115,11 +115,9 @@ def embed_images(book, soup):
                 try:
                     logging.info('Downloading image %s', img['src'])
                     content = requests.get(img['src'], timeout=3.05).content
-                except requests.exceptions.ContentDecodingError as e:
-                    logging.error('Skipping image %s (%s)' %
-                                  (img['src'], e))
-                    continue
-                except requests.exceptions.ConnectionError as e:
+                except (requests.exceptions.ContentDecodingError,
+                        requests.exceptions.ConnectionError,
+                        requests.exceptions.ReadTimeout) as e:
                     logging.error('Skipping image %s (%s)' %
                                   (img['src'], e))
                     continue
