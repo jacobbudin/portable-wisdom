@@ -30,7 +30,7 @@ setup(name='portable_wisdom',
           'beautifulsoup4>=4.7.1', # parses HTML for imags
           'html5lib>=1.0.1', # parses HTML for images
           'diskcache>=3.1.1', # caches article text and images
-          'pyinstapaper>=0.2.2', # Instapaper API client
+          'readwise-pyinstapaper==0.2.3', # Instapaper API client
       ],
       packages=find_packages(),
       package_data={
