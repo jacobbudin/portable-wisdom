@@ -118,7 +118,8 @@ def embed_images(book, soup):
                 except (requests.exceptions.ContentDecodingError,
                         requests.exceptions.ConnectionError,
                         requests.exceptions.ReadTimeout,
-                        requests.exceptions.InvalidSchema) as e:
+                        requests.exceptions.InvalidSchema,
+                        requests.exceptions.MissingSchema) as e:
                     logging.error('Skipping image %s (%s)' %
                                   (img['src'], e))
                     continue
