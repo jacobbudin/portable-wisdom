@@ -1,7 +1,9 @@
 from .cache import cache
 from urllib.parse import urlparse
+from bs4 import BeautifulSoup
 import os
 from ebooklib import epub
+import emoji
 import io
 import logging
 import re
@@ -63,6 +65,14 @@ def remove_duplicative_blockquotes(book, soup):
         if quote in copy:
             logging.debug('Removing blockquote: %s', quote)
             blockquote.decompose()
+
+
+def strip_emojis(book, soup):
+    """Replaces emojis with shortcodes"""
+
+    body = str(soup.body)
+    stripped_body = BeautifulSoup(emoji.demojize(body), 'html5lib')
+    soup.body.replace_with(stripped_body)
 
 
 def strip_links(book, soup):

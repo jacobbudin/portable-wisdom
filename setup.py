@@ -33,6 +33,7 @@ setup(name='portable_wisdom',
           'html5lib>=1.0.1', # parses HTML for images
           'diskcache>=3.1.1', # caches article text and images
           'readwise-pyinstapaper==0.2.3', # Instapaper API client
+          'emoji>=2.2.0', # strips emojis
       ],
       packages=find_packages(),
       package_data={

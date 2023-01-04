@@ -38,6 +38,7 @@ On success, the script will print the output filename. To view all of the option
 Transformers are functions that modify the EPUB before writing the file to disk. There are many built-in transformers including:
 - `beautify_hr` — converts lines of asterisks to horizontal rules
 - `remove_duplicative_blockquotes` — removes magazine-style "pull quotes"
+- `strip_emojis` — replaces emojis with shortcodes
 - `strip_links` — removes `a` elements
 - `embed_images` — embeds remote web images
 

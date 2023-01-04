@@ -9,6 +9,7 @@ ALLOWED_ATTRIBUTES = ('src', )
 TRANSFORM = (
     'remove_duplicative_blockquotes',
     'embed_images',
+    'strip_emojis',
     'strip_links',
     'beautify_hr'
 )
