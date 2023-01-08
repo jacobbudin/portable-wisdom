@@ -4,7 +4,7 @@ with open('README.md') as f:
     readme = f.read()
 
 setup(name='portable_wisdom',
-      version='0.2.2',
+      version='0.2.3',
       description='Generate EPUB from Instapaper',
       long_description=readme,
       long_description_content_type='text/markdown',
