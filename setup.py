@@ -32,7 +32,7 @@ setup(name='portable_wisdom',
           'requests>=2.21', # downloads images
           'beautifulsoup4>=4.7.1', # parses HTML for imags
           'html5lib>=1.0.1', # parses HTML for images
-          'diskcache>=3.1.1', # caches article text and images
+          'diskcache>=5.4.0', # caches article text and images
           'readwise-pyinstapaper==0.2.3', # Instapaper API client
           'emoji>=2.2.0', # strips emojis
       ],
