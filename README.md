@@ -1,7 +1,5 @@
 # Portable Wisdom
 
-[![Build Status](https://travis-ci.org/jacobbudin/portable-wisdom.svg?branch=master)](https://travis-ci.org/jacobbudin/portable-wisdom)
-
 Portable Wisdom is a command-line tool to generate an EPUB file from your unread articles in [Instapaper](https://www.instapaper.com/). You can then copy this file to your ereader.
 
 <img src="https://raw.githubusercontent.com/jacobbudin/portable-wisdom/master/preview.jpg" alt="Preview of a Portable Wisdom-generated ebook on an ereader" width="252" />
