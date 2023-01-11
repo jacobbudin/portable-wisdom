@@ -71,8 +71,7 @@ def main():
     filename = config.OUTPUT
     if not filename:
         today = datetime.datetime.today()
-        filename = '%s - %s-%s-%s.epub' % (source.name, today.year,
-                                           today.month, today.day)
+        filename = '{} - {:%Y-%m-%d}.epub'.format(source.name, today)
 
     epub.write_epub(filename, book, {})
     if not config.QUIET:
