@@ -43,6 +43,4 @@ setup(name='portable_wisdom',
       entry_points={
           'console_scripts': ['portable-wisdom=portable_wisdom.wisdom:main'],
       },
-      test_suite='nose.collector',
-      tests_require=['nose'],
       zip_safe=False)
