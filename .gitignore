@@ -4,6 +4,7 @@ venv
 # python
 .eggs
 *.egg-info
+.tox
 
 # cache
 __pycache__
