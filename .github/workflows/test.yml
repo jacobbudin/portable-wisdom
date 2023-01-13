@@ -1,4 +1,4 @@
-name: Build Portable Wisdom
+name: Run Portable Wisdom tests
 
 on:
   - push
