@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portable_wisdom"
+authors = [
+    {name = "Jacob Budin", email = "self@jacobbudin.com"},
+]
+description = "Generate EPUB files from unread Instapaper articles"
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["cli", "ebook", "reading", "epub", "instapaper"]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "ebooklib>=0.18", # generates EPUB
+    "pillow>=9.4.0", # downsizes images
+    "requests>=2.21", # downloads images
+    "beautifulsoup4>=4.7.1", # parses HTML for imags
+    "html5lib>=1.0.1", # parses HTML for images
+    "diskcache>=5.4.0", # caches article text and images
+    "readwise-pyinstapaper==0.2.3", # Instapaper API client
+    "emoji>=2.2.0", # strips emojis
+]
+dynamic = ["version"]
+
+[project.urls]
+Source = "https://github.com/jacobbudin/portable-wisdom"
+
+[project.scripts]
+portable-wisdom = "portable_wisdom.wisdom:main"
+
+[tool.setuptools]
+package-dir = {"" = "portable_wisdom"}
+
+[tool.setuptools.dynamic]
+version = {attr = "__version__.__version__"}
+
+[tool.setuptools.package-data]
+portable_wisdom = ["styles/*.css"]

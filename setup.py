@@ -1,46 +1,6 @@
-from setuptools import find_packages, setup
+#!/usr/bin/env python
 
-with open('README.md') as f:
-    readme = f.read()
+import setuptools
 
-setup(name='portable_wisdom',
-      version='0.2.3',
-      description='Generate EPUB from Instapaper',
-      long_description=readme,
-      long_description_content_type='text/markdown',
-      classifiers=[
-          'Development Status :: 3 - Alpha',
-          'Environment :: Console',
-          'Intended Audience :: End Users/Desktop',
-          'License :: OSI Approved :: MIT License',
-          'Natural Language :: English',
-          'Programming Language :: Python',
-          'Programming Language :: Python :: 3',
-          'Programming Language :: Python :: 3.7',
-          'Programming Language :: Python :: 3.8',
-          'Programming Language :: Python :: 3.9',
-          'Programming Language :: Python :: 3.10',
-          'Topic :: Utilities',
-      ],
-      url='https://github.com/jacobbudin/portable-wisdom',
-      author='Jacob Budin',
-      author_email='self@jacobbudin.com',
-      license='MIT',
-      install_requires=[
-          'ebooklib>=0.18', # generates EPUB
-          'pillow>=9.4.0', # downsizes images
-          'requests>=2.21', # downloads images
-          'beautifulsoup4>=4.7.1', # parses HTML for imags
-          'html5lib>=1.0.1', # parses HTML for images
-          'diskcache>=5.4.0', # caches article text and images
-          'readwise-pyinstapaper==0.2.3', # Instapaper API client
-          'emoji>=2.2.0', # strips emojis
-      ],
-      packages=find_packages(),
-      package_data={
-          'portable_wisdom': ['styles/*.css'],
-      },
-      entry_points={
-          'console_scripts': ['portable-wisdom=portable_wisdom.wisdom:main'],
-      },
-      zip_safe=False)
+if __name__ == "__main__":
+    setuptools.setup()
