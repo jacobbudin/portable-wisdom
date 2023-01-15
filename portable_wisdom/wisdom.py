@@ -7,6 +7,7 @@ import datetime
 from ebooklib import epub
 import logging
 from . import config
+from .__version__ import __version__ as version
 import sys
 
 
@@ -38,8 +39,14 @@ def main():
                         action='store_true', help='verbose mode')
     parser.add_argument('-d', '--debug', default=False,
                         action='store_true', help='debug mode')
+    parser.add_argument('-V', '--version', default=False,
+                        action='store_true', help='print version number')
 
     args = parser.parse_args()
+
+    if args.version:
+        print(version)
+        sys.exit(0)
 
     # Where an option is provided, override its configuration value
     for option, value in vars(args).items():
