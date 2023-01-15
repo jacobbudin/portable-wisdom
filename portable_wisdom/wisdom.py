@@ -14,7 +14,7 @@ def main():
     """Generate EPUB from Instapaper"""
     # Support CLI
     parser = argparse.ArgumentParser(
-        description='Generate EPUB from Instapaper')
+        description='Generate EPUB files from unread Instapaper articles')
     parser.add_argument('--instapaper-key', help='Instapaper API key')
     parser.add_argument('--instapaper-secret', help='Instapaper API secret')
     parser.add_argument('--instapaper-login',
