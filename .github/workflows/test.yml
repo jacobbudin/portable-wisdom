@@ -1,15 +1,16 @@
-name: Run Portable Wisdom tests
+name: Run tests
 
 on:
   - push
   - pull_request
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: ['3.7', '3.8', '3.9', '3.10', '3.11']
+    name: Python ${{ matrix.python-version }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
