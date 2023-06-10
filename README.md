@@ -37,19 +37,14 @@ On success, the script will print the output filename. To view all of the option
 
 ### Docker
 
-Download and install [Docker](https://www.docker.com/get-started/), then:
+Alternatively, using [Docker](https://www.docker.com/get-started/), download Portable Wisdom [from Docker Hub](https://hub.docker.com/repository/docker/jacobbudin/portable-wisdom/general) and run:
 
-1. Download and install Portable Wisdom [from Docker Hub](https://hub.docker.com/repository/docker/jacobbudin/portable-wisdom/general):
-
-		$ docker pull jacobbudin/portable-wisdom:latest
-
-2. Run Portable Wisdom from the command line:
-
-		$ docker run jacobbudin/portable-wisdom:latest \
-			--instapaper-key KEY \
-			--instapaper-secret SECRET \
-			--instapaper-login USER \
-			--instapaper-password PASS
+	$ docker pull jacobbudin/portable-wisdom:latest
+	$ docker run jacobbudin/portable-wisdom:latest \
+		--instapaper-key KEY \
+		--instapaper-secret SECRET \
+		--instapaper-login USER \
+		--instapaper-password PASS
 
 ## Transformers
 
