@@ -17,19 +17,39 @@ Portable Wisdom is a command-line tool to generate an EPUB file from your unread
 
 ## Quick Start
 
-1. Download and install Portable Wisdom from PyPI:
+Before you begin, you'll need to [request an Instapaper API key](https://www.instapaper.com/main/request_oauth_consumer_token) or copy one from a friend.
+
+### Python
+
+1. Download and install Portable Wisdom [from PyPI](https://pypi.org/project/portable-wisdom/):
 
 		$ pip install portable-wisdom
 
-2. [Request an Instapaper API key.](https://www.instapaper.com/main/request_oauth_consumer_token) (Or copy one from a friend.)
-4. Run Portable Wisdom from the command line:
+2. Run Portable Wisdom from the command line:
 
-		$ portable-wisdom --instapaper-key KEY \
+		$ portable-wisdom \
+			--instapaper-key KEY \
 			--instapaper-secret SECRET \
 			--instapaper-login USER \
 			--instapaper-password PASS
 
 On success, the script will print the output filename. To view all of the options, run `$ portable-wisdom -h`.
+
+### Docker
+
+Download and install [Docker](https://www.docker.com/get-started/), then:
+
+1. Download and install Portable Wisdom [from Docker Hub](https://hub.docker.com/repository/docker/jacobbudin/portable-wisdom/general):
+
+		$ docker pull jacobbudin/portable-wisdom:latest
+
+2. Run Portable Wisdom from the command line:
+
+		$ docker run jacobbudin/portable-wisdom:latest \
+			--instapaper-key KEY \
+			--instapaper-secret SECRET \
+			--instapaper-login USER \
+			--instapaper-password PASS
 
 ## Transformers
 
