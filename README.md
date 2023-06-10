@@ -37,7 +37,7 @@ On success, the script will print the output filename. To view all of the option
 
 ### Docker
 
-Alternatively, using [Docker](https://www.docker.com/get-started/), download and execute Portable Wisdom [from Docker Hub](https://hub.docker.com/repository/docker/jacobbudin/portable-wisdom/general), run:
+Alternatively, using [Docker](https://www.docker.com/get-started/), to download and execute Portable Wisdom [from Docker Hub](https://hub.docker.com/repository/docker/jacobbudin/portable-wisdom/general), run:
 
 	$ docker pull jacobbudin/portable-wisdom:latest
 	$ docker run jacobbudin/portable-wisdom:latest \
