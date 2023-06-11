@@ -46,6 +46,10 @@ Alternatively, using [Docker](https://www.docker.com/get-started/), to download 
 		--instapaper-login USER \
 		--instapaper-password PASS
 
+## Environment
+
+For enhanced security, you can alternatively supply Instapaper credentials via environment variables: `INSTAPAPER_KEY`, `INSTAPAPER_SECRET`, `INSTAPAPER_LOGIN`, and `INSTAPAPER_PASSWORD`.
+
 ## Transformers
 
 Transformers are functions that modify the EPUB before writing the file to disk. There are many built-in transformers including:

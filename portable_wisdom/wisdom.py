@@ -9,6 +9,7 @@ import logging
 from . import config
 from .__version__ import __version__ as version
 import sys
+import os
 
 
 def main():
@@ -16,12 +17,22 @@ def main():
     # Support CLI
     parser = argparse.ArgumentParser(
         description='Generate EPUB files from unread Instapaper articles')
-    parser.add_argument('--instapaper-key', help='Instapaper API key')
-    parser.add_argument('--instapaper-secret', help='Instapaper API secret')
-    parser.add_argument('--instapaper-login',
-                        help='Instapaper account username or email address')
-    parser.add_argument('--instapaper-password',
-                        help='Instapaper account password')
+    parser.add_argument(
+        '--instapaper-key',
+        help='Instapaper API key',
+        default=os.environ.get('INSTAPAPER_KEY'))
+    parser.add_argument(
+        '--instapaper-secret',
+        help='Instapaper API secret',
+        default=os.environ.get('INSTAPAPER_SECRET'))
+    parser.add_argument(
+        '--instapaper-login',
+        help='Instapaper account username or email address',
+        default=os.environ.get('INSTAPAPER_LOGIN'))
+    parser.add_argument(
+        '--instapaper-password',
+        help='Instapaper account password',
+        default=os.environ.get('INSTAPAPER_PASSWORD'))
     parser.add_argument('-o', '--output', default=config.OUTPUT,
                         metavar='FILE', help='output filename')
     parser.add_argument('-s', '--style', default=config.STYLE,
