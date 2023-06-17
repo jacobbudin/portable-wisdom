@@ -18,13 +18,13 @@ def main():
     parser = argparse.ArgumentParser(
         description='Generate EPUB files from unread Instapaper articles')
     parser.add_argument(
-        '--instapaper-key',
+        '--instapaper-api-key',
         help='Instapaper API key',
-        default=os.environ.get('INSTAPAPER_KEY'))
+        default=os.environ.get('INSTAPAPER_API_KEY'))
     parser.add_argument(
-        '--instapaper-secret',
+        '--instapaper-api-secret',
         help='Instapaper API secret',
-        default=os.environ.get('INSTAPAPER_SECRET'))
+        default=os.environ.get('INSTAPAPER_API_SECRET'))
     parser.add_argument(
         '--instapaper-login',
         help='Instapaper account username or email address',
@@ -58,6 +58,27 @@ def main():
     if args.version:
         print(version)
         sys.exit(0)
+
+    # Check for mandatory arguments
+    mandatory_arguments = (
+        'instapaper_api_key',
+        'instapaper_api_secret',
+        'instapaper_login',
+        'instapaper_password')
+    absent_arguments = []
+    for arg in mandatory_arguments:
+        try:
+            value = getattr(args, arg)
+            if value is None or len(value) == 0:
+                raise AttributeError
+        except AttributeError:
+            absent_arguments.append(arg)
+
+    if len(absent_arguments):
+        logging.critical(
+            'Instapaper credentials not provided: %s' %
+            ', '.join(absent_arguments))
+        sys.exit(1)
 
     # Where an option is provided, override its configuration value
     for option, value in vars(args).items():

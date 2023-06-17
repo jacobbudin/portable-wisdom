@@ -14,9 +14,9 @@ TRANSFORM = (
     'beautify_hr'
 )
 
-# Instapaper configuration
-INSTAPAPER_KEY = ''
-INSTAPAPER_SECRET = ''
+# Instapaper credentials
+INSTAPAPER_API_KEY = ''
+INSTAPAPER_API_SECRET = ''
 INSTAPAPER_LOGIN = ''
 INSTAPAPER_PASSWORD = ''
 

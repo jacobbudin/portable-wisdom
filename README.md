@@ -28,8 +28,8 @@ Before you begin, you'll need to [request an Instapaper API key](https://www.ins
 2. Run Portable Wisdom from the command line:
 
 		$ portable-wisdom \
-			--instapaper-key KEY \
-			--instapaper-secret SECRET \
+			--instapaper-api-key KEY \
+			--instapaper-api-secret SECRET \
 			--instapaper-login USER \
 			--instapaper-password PASS
 
@@ -41,14 +41,14 @@ Alternatively, using [Docker](https://www.docker.com/get-started/), to download 
 
 	$ docker pull jacobbudin/portable-wisdom:latest
 	$ docker run jacobbudin/portable-wisdom:latest \
-		--instapaper-key KEY \
-		--instapaper-secret SECRET \
+		--instapaper-api-key KEY \
+		--instapaper-api-secret SECRET \
 		--instapaper-login USER \
 		--instapaper-password PASS
 
 ## Environment
 
-For enhanced security, you can alternatively supply Instapaper credentials via environment variables: `INSTAPAPER_KEY`, `INSTAPAPER_SECRET`, `INSTAPAPER_LOGIN`, and `INSTAPAPER_PASSWORD`.
+Alternatively, you can supply the Instapaper credentials via environment variables: `INSTAPAPER_API_KEY`, `INSTAPAPER_API_SECRET`, `INSTAPAPER_LOGIN`, and `INSTAPAPER_PASSWORD`.
 
 ## Transformers
 

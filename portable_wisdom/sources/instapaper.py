@@ -1,8 +1,8 @@
 import logging
 from ..cache import cache
 from ..article import Article
-from ..config import INSTAPAPER_KEY, INSTAPAPER_SECRET, \
-                     INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD, ARTICLE_LIMIT
+from ..config import INSTAPAPER_API_KEY, INSTAPAPER_API_SECRET, \
+    INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD, ARTICLE_LIMIT
 from ..source import Source
 from pyinstapaper.instapaper import Instapaper as PInstapaper
 
@@ -12,8 +12,17 @@ class Instapaper(Source):
 
     def get_articles(self):
         """Produce a list of Articles"""
-        instapaper = PInstapaper(INSTAPAPER_KEY, INSTAPAPER_SECRET)
-        instapaper.login(INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD)
+        instapaper = PInstapaper(INSTAPAPER_API_KEY, INSTAPAPER_API_SECRET)
+
+        try:
+            instapaper.login(INSTAPAPER_LOGIN, INSTAPAPER_PASSWORD)
+        except KeyError as e:
+            if 'oauth_token' in str(e):
+                logging.critical(
+                    'Instapaper authentication failed; '
+                    'check your API and user credentials')
+
+            raise e
 
         # Enforce 25 article maximum
         limit = 25
