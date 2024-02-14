@@ -44,11 +44,8 @@ Source = "https://github.com/jacobbudin/portable-wisdom"
 [project.scripts]
 portable-wisdom = "portable_wisdom.wisdom:main"
 
-[tool.setuptools]
-package-dir = {"" = "portable_wisdom"}
-
 [tool.setuptools.dynamic]
-version = {attr = "__version__.__version__"}
+version = {attr = "portable_wisdom.__version__.__version__"}
 
 [tool.setuptools.package-data]
 portable_wisdom = ["styles/*.css"]
