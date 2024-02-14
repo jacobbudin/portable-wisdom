@@ -20,3 +20,6 @@ dist
 
 # tmp
 .DS_Store
+
+# local
+/config.py
